@@ -1,0 +1,24 @@
+.activities-div {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 25px;
+}
+
+.single-activity {
+  border: solid 1px #ededed;
+  width: 250px;
+  padding: 25px;
+  text-align: center;
+  border-radius: 5px;
+  box-shadow: 2px 3px 4px 1px #bfbfbf;
+  cursor: pointer;
+}
+
+form,
+.form-cardContent {
+  padding: 20px 30px;
+}
+
+.form-control {
+  margin-bottom: 15px;
+}

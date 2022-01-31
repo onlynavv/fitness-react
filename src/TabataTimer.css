@@ -1,0 +1,21 @@
+.playBtn-div {
+  margin-top: 25px;
+}
+
+.playBtn {
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  background: green;
+  color: white;
+  padding: 15px 30px;
+}
+
+.pauseBtn {
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  background: red;
+  color: white;
+  padding: 15px 30px;
+}
