@@ -9,7 +9,7 @@ const Profile = () => {
 
   const {userState, isUserLoggedIn} = useGlobalContext()
   const [usersActivities, setUserActivities] = useState([])
-  const [userMeasurementInfo, setUserMeasurementInfo] = useState([])
+  const [userMeasurementInfo, setUserMeasurementInfo] = useState()
   const [userCalories, setUserCalories] = useState([])
   const [userLatestActivity, setUserLatestActivity] = useState([])
 
@@ -25,7 +25,7 @@ const Profile = () => {
             headers: { "Content-Type": "application/json", "x-auth-token":userState.token}})
     .then((data)=> data.json())
     .then((item)=> setUserActivities(item))
-  },[])
+  },[userState])
 
   console.log(usersActivities)
 
@@ -35,11 +35,11 @@ const Profile = () => {
             headers: { "Content-Type": "application/json", "x-auth-token":userState.token}})
     .then((data)=> data.json())
     .then((item)=> setUserMeasurementInfo(item))
-  },[])
+  },[userState])
 
   console.log(userMeasurementInfo)
 
-  const weightArr = userMeasurementInfo.length > 0 && userMeasurementInfo.weightData.map((item)=>{
+  const weightArr = userMeasurementInfo && userMeasurementInfo.weightData.map((item)=>{
     const newWeightArr = {}
     newWeightArr.dateData = new Date(item.dateData).toLocaleDateString()
     newWeightArr.weightValue = item.weightInt
@@ -52,7 +52,7 @@ const Profile = () => {
             headers: { "Content-Type": "application/json", "x-auth-token":userState.token}})
     .then((data)=> data.json())
     .then((item)=> setUserCalories(item))
-  },[])
+  },[userState])
 
   console.log(userCalories)
 
@@ -71,16 +71,18 @@ const Profile = () => {
             headers: { "Content-Type": "application/json", "x-auth-token":userState.token}})
     .then((data)=> data.json())
     .then((item)=> setUserLatestActivity(item))
-  },[])
+  },[userState])
 
   console.log(userLatestActivity)
 
   return <div>
+      <h2>Profile</h2>
       Welcome!! {userState.user.username}
-      <Posts usersActivities = {usersActivities} />
-      <CalorieGraph chartArr={chartArr}  />
-      <UserLastActivity userLatestActivity={userLatestActivity} />
-      <WeightGraph weightArr={weightArr} />
+      {usersActivities.length > 0 ? <Posts usersActivities = {usersActivities} /> : <h3>Posts loading...</h3>}
+      {chartArr.length > 0 ? <CalorieGraph chartArr={chartArr}  /> : <h3>Calorie graph loading...</h3>}
+      {userLatestActivity.length > 0 ? <UserLastActivity userLatestActivity={userLatestActivity} /> : <h3>Latest activity graph loading...</h3>}
+      {weightArr ? <WeightGraph weightArr={weightArr} /> : <h3>Weight graph loading...</h3>}
+      
   </div>;
 };
 

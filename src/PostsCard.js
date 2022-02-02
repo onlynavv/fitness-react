@@ -3,11 +3,13 @@ import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import LocalFireDepartmentIcon from '@mui/icons-material/LocalFireDepartment';
 import SportsSoccerOutlinedIcon from '@mui/icons-material/SportsSoccerOutlined';
 import "./PostsCard.css"
+import { useHistory } from 'react-router-dom';
 
 const PostsCard = ({_id, totalCalories, username, workoutDate, workoutSummary, workoutTitle}) => {
     const activityDate = new Date(workoutDate)
+    const history = useHistory()
   return (
-        <div className='postsCard-wrapper' onClick={()=>{console.log(_id)}}>
+        <div className='postsCard-wrapper' onClick={()=>{history.push(`/userSingleActivty/${_id}`)}}>
             <div className='postsCard-header'>
                 <AccountCircleIcon />
                 <h3>{username}</h3>

@@ -17,8 +17,8 @@ const Sidebar = () => {
                     <Link to="/workouts">Workout</Link>
                     <Link to="/measurements">Measurements</Link>
                     <Link to="/timer">Tabata Timer</Link>
-                    <Link to="/signup">SignUp</Link>
-                    <Link to="/login">Login</Link>
+                    {/* <Link to="/signup">SignUp</Link>
+                    <Link to="/login">Login</Link> */}
                     {userState.isUserAuthenticated && <p onClick={userSignout}>Logout</p>}
                 </div>
             </aside>

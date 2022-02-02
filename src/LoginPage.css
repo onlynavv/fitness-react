@@ -1,0 +1,87 @@
+.login {
+  position: relative;
+  height: 100%;
+  background: url("https://www.thefitnessgrp.co.uk/wp-content/uploads/2021/07/required-qualifications-to-work-at-a-gym-1110x590.jpg")
+    center no-repeat;
+  background-size: cover;
+  width: 100%;
+}
+
+.login-gradient {
+  width: 100%;
+  z-index: 1;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.4);
+  background-image: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.8) 0%,
+    rgba(0, 0, 0, 0) 60%,
+    rgba(0, 0, 0, 0.8) 100%
+  );
+}
+
+.signup {
+  max-width: 450px;
+  padding: 50px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: rgb(255 255 255 / 90%);
+  position: absolute;
+  top: 10%;
+  left: 0;
+  right: 0;
+  width: 450px;
+}
+
+.signup > form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.signup > form > input {
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  padding: 5px 15px;
+  height: 40px;
+  margin-bottom: 12px;
+}
+
+.signup > form > button {
+  outline: none;
+  border: none;
+  border-radius: 3px;
+  color: white;
+  background-color: #e50914;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+  margin-top: 20px;
+  padding: 10px 20px;
+}
+
+.signup > form > h1 {
+  text-align: left;
+  margin-bottom: 15px;
+  color: white;
+}
+
+.signup > form > h4 {
+  text-align: left;
+  margin-top: 30px;
+}
+
+.signup-gray {
+  color: black;
+}
+
+.signup-link {
+  font-weight: 900;
+  color: black;
+}
+
+.signup-link:hover {
+  cursor: pointer;
+  text-decoration: underline;
+}

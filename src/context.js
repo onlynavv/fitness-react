@@ -1,4 +1,7 @@
 import React,{useContext, useReducer} from "react";
+import { useHistory } from "react-router-dom";
+import { EditWorkoutReducer } from "./EditWorkoutReducer";
+import { EditWorkoutState } from "./EditWorkoutState";
 import { LogWorkoutReducer } from "./LogWorkoutReducer";
 import { LogWorkoutState } from "./LogWorkoutState";
 import { TimerInitialState } from "./TimerInitialState";
@@ -9,6 +12,8 @@ import { UserState } from "./UserState";
 const AppContext = React.createContext()
 
 const AppProvider = ({children}) => {
+
+    const history = useHistory()
 
     // user functions
     const isUserLoggedIn = () => {
@@ -22,6 +27,7 @@ const AppProvider = ({children}) => {
     const userSignout = () => {
         localStorage.clear()
         userDispatch({type:"LOGOUT_USER"})
+        history.push("/")
     }
 
     // tabata timer
@@ -29,6 +35,8 @@ const AppProvider = ({children}) => {
     const [timerState, timerDispatch] = useReducer(TimerReducer, TimerInitialState)
 
     const [logWorkoutState, logWorkoutDispatcher] = useReducer(LogWorkoutReducer, LogWorkoutState)
+
+    const [editWorkoutState, editWorkoutDispatcher] = useReducer(EditWorkoutReducer, EditWorkoutState)
 
     // user useReducer
     const [userState, userDispatch] = useReducer(UserReducer, UserState)
@@ -38,7 +46,7 @@ const AppProvider = ({children}) => {
     console.log(logWorkoutState.workoutSelected)
 
     return(
-        <AppContext.Provider value={{timerState, ...logWorkoutState, logWorkoutDispatcher, userState, userDispatch, isUserLoggedIn, userSignout}}>
+        <AppContext.Provider value={{timerState, ...logWorkoutState, logWorkoutDispatcher, userState, userDispatch, isUserLoggedIn, userSignout, editWorkoutState, editWorkoutDispatcher}}>
             {children}
         </AppContext.Provider>
     )

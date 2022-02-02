@@ -52,6 +52,7 @@ const Measurements = () => {
 
   return (
     <div className='measurements-wrapper'>
+      <h2>Measurements</h2>
       <div className='weight-wrapper'>
         <div className='weight-info'>
           <div className='weight-infoBtns'>

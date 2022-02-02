@@ -7,7 +7,7 @@ const UserLastActivity = ({userLatestActivity}) => {
     const {workoutTitle ,workoutSummary, totalCalories} = userLatestActivity.length > 0 && userLatestActivity[0]
   return (
     <div className='userLastActivity-wrapper'>
-        <h1>Today's Activity</h1>
+        <h2>Today's Activity</h2>
         <div className='userLastActivity-header'>
             <h2>{userLatestActivity.length > 0 && workoutTitle}</h2>
             <h3>Calories Burned <LocalFireDepartmentIcon /> : {userLatestActivity.length > 0 && totalCalories} kcal</h3>

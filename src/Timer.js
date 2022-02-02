@@ -73,6 +73,7 @@ const Timer = () => {
         
         {showPlayBtn ? (
             <div className='timerForm-div'>
+                <h1>Timer</h1>
                 <form>
                     <div className='form-control'>
                         <label>workout seconds</label>

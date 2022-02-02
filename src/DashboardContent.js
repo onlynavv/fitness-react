@@ -16,6 +16,8 @@ import LogWorkout from './LogWorkout';
 import Signup from './Signup';
 import Login from './Login';
 import SaveWorkout from './SaveWorkout';
+import UserSingleActivity from './UserSingleActivity';
+import EditLogWorkout from './EditLogWorkout';
 
 const DashboardContent = () => {
   return (
@@ -38,6 +40,9 @@ const DashboardContent = () => {
                     <Route path="/activities/:id">
                         <Activities />
                     </Route>
+                    <Route path="/userSingleActivty/:id">
+                        <UserSingleActivity />
+                    </Route>
                     <Route path="/timer">
                         <TabataTimer />
                     </Route>
@@ -46,6 +51,9 @@ const DashboardContent = () => {
                     </Route>
                     <Route path="/saveworkout">
                         <SaveWorkout />
+                    </Route>
+                    <Route path="/editWorkout/:id">
+                        <EditLogWorkout />
                     </Route>
                     <Route path="/signup">
                         <Signup />
