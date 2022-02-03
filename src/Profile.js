@@ -4,6 +4,7 @@ import { useGlobalContext } from './context';
 import Posts from './Posts';
 import UserLastActivity from './UserLastActivity';
 import WeightGraph from './WeightGraph';
+import "./Profile.css"
 
 const Profile = () => {
 
@@ -75,14 +76,24 @@ const Profile = () => {
 
   console.log(userLatestActivity)
 
-  return <div>
-      <h2>Profile</h2>
-      Welcome!! {userState.user.username}
-      {usersActivities.length > 0 ? <Posts usersActivities = {usersActivities} /> : <h3>Posts loading...</h3>}
-      {chartArr.length > 0 ? <CalorieGraph chartArr={chartArr}  /> : <h3>Calorie graph loading...</h3>}
-      {userLatestActivity.length > 0 ? <UserLastActivity userLatestActivity={userLatestActivity} /> : <h3>Latest activity graph loading...</h3>}
-      {weightArr ? <WeightGraph weightArr={weightArr} /> : <h3>Weight graph loading...</h3>}
-      
+  return <div className='profile-wrapper'>
+      <div className='profile-header'>
+        <h2>Profile</h2>
+        <h3>Welcome {userState.user.username} 😊!!</h3>
+      </div>
+
+      <div className='userInfo-wrapper'>
+        <div className='userInfo-left'>
+          {chartArr.length > 0 ? <CalorieGraph chartArr={chartArr}  /> : <h3>You haven't have any Calorie graph</h3>}
+
+          {usersActivities.length > 0 ? <Posts usersActivities = {usersActivities} /> : <h3>You haven't have any Posts</h3>}
+        </div>
+        <div className='userInfo-right'>
+          {userLatestActivity.length > 0 ? <UserLastActivity userLatestActivity={userLatestActivity} /> : <h3>You haven't have any Latest activity graph</h3>}
+
+          {weightArr ? <WeightGraph weightArr={weightArr} /> : <h3>You haven't have any Weight graph</h3>}
+        </div>
+      </div>
   </div>;
 };
 

@@ -1,0 +1,17 @@
+.editLogWorkout-wrapper {
+  padding: 25px;
+}
+
+.editLogWorkout-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.editworkout {
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  background: #6553f5;
+  color: white;
+  padding: 15px 30px;
+}

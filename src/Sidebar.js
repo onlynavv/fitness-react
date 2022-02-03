@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { useGlobalContext } from './context';
 import './Sidebar.css'
+import LogoutIcon from '@mui/icons-material/Logout';
+import AlarmOnIcon from '@mui/icons-material/AlarmOn';
+import StraightenIcon from '@mui/icons-material/Straighten';
+import FitnessCenterIcon from '@mui/icons-material/FitnessCenter';
+import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
 
 const Sidebar = () => {
 
@@ -10,16 +15,16 @@ const Sidebar = () => {
   return <>
             <aside className="sidebar">
                 <div className='sidebar-header'>
-                    <h4>Fitness Logger</h4>
+                    <h1>Fitness Logger</h1>
                 </div>
                 <div className="sidebar-content">
-                    <Link to="/">Profile</Link>
-                    <Link to="/workouts">Workout</Link>
-                    <Link to="/measurements">Measurements</Link>
-                    <Link to="/timer">Tabata Timer</Link>
+                    <Link to="/"><InsertChartOutlinedIcon /> Profile</Link>
+                    <Link to="/workouts"><FitnessCenterIcon /> Workout</Link>
+                    <Link to="/measurements"><StraightenIcon /> Measurements</Link>
+                    <Link to="/timer"><AlarmOnIcon /> Tabata Timer</Link>
                     {/* <Link to="/signup">SignUp</Link>
                     <Link to="/login">Login</Link> */}
-                    {userState.isUserAuthenticated && <p onClick={userSignout}>Logout</p>}
+                    {userState.isUserAuthenticated && <p onClick={userSignout}><LogoutIcon /> Logout</p>}
                 </div>
             </aside>
   </>;

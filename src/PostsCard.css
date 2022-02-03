@@ -1,9 +1,9 @@
 .postsCard-wrapper {
   margin-bottom: 20px;
   padding: 20px;
-  border: solid 1px lightgrey;
-  border-radius: 5px;
+  border-radius: 10px;
   box-shadow: 2px 3px 7px 1px #e5e5e5;
+  background-color: white;
 }
 
 .postsCard-wrapper:hover {

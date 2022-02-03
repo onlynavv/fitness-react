@@ -5,6 +5,9 @@ import moment from 'moment'
 import { useGlobalContext } from './context';
 import {nanoid} from "nanoid"
 import { useHistory } from 'react-router-dom';
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
+import "./SaveWorkout.css"
+import SaveOutlinedIcon from '@mui/icons-material/SaveOutlined';
 
 const SaveWorkout = () => {
 
@@ -49,6 +52,10 @@ const SaveWorkout = () => {
 
   return (
     <div className='save-workout-wrapper'>
+        <div className='save-workout-header'>
+            <h1>Save Workout</h1>
+            <button onClick={()=>history.goBack()} className='backBtn'><ArrowBackOutlinedIcon /> Go Back</button>
+        </div>
         <form className='form-wrapper'>
             <div className='form-control'>
                 <label>Enter Workout Title</label>
@@ -63,7 +70,7 @@ const SaveWorkout = () => {
                 <label>Date: {moment(dateValue).format('dddd, MMMM Do YYYY, h:mm:ss a')}</label>
             </div>
             <div className='form-control'>
-                <button onClick={(e)=>{handleWorkoutSubmit(e)}}>Save Workout</button>
+                <button onClick={(e)=>{handleWorkoutSubmit(e)}} className='saveWorkout'>Save Workout <SaveOutlinedIcon /> </button>
             </div>
         </form>
     </div>

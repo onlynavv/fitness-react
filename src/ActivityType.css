@@ -1,15 +1,58 @@
 .activityType-div {
   display: flex;
   justify-content: space-around;
-  margin-top: 25px;
+  flex-direction: column;
+  gap: 30px;
+  margin: 50px auto;
+  width: 500px;
 }
 
 .single-activityType {
   border: solid 1px #ededed;
-  width: 250px;
-  padding: 25px;
+  padding: 30px 25px;
   text-align: center;
+  border-radius: 10px;
+  box-shadow: 3px 2px 9px 3px #dfccff;
+  cursor: pointer;
+  width: 100%;
+  background-color: white;
+  transition: background-color cubic-bezier(0.32, 0.41, 0.35, 0.76) 0.35s;
+}
+
+.single-activityType:hover {
+  background-color: #673ab7;
+  color: white;
+  border: none;
+}
+
+.activityType-wrapper {
+  padding: 25px;
+  margin: 25px auto;
+}
+
+.activityType-wrapper > h1 {
+  text-align: center;
+}
+
+.activityType-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.backBtn {
+  display: flex;
+  align-items: center;
+  padding: 2px 10px;
+  width: fit-content;
+  gap: 5px;
+  border: none;
+  outline: none;
   border-radius: 5px;
-  box-shadow: 2px 3px 4px 1px #bfbfbf;
+  color: white;
+  background-color: #673ab7;
+}
+
+.backBtn:hover {
   cursor: pointer;
 }

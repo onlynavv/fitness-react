@@ -7,10 +7,10 @@ const UserLastActivity = ({userLatestActivity}) => {
     const {workoutTitle ,workoutSummary, totalCalories} = userLatestActivity.length > 0 && userLatestActivity[0]
   return (
     <div className='userLastActivity-wrapper'>
-        <h2>Today's Activity</h2>
+        <h3>Today's Activity</h3>
         <div className='userLastActivity-header'>
-            <h2>{userLatestActivity.length > 0 && workoutTitle}</h2>
-            <h3>Calories Burned <LocalFireDepartmentIcon /> : {userLatestActivity.length > 0 && totalCalories} kcal</h3>
+            <h3>{userLatestActivity.length > 0 && workoutTitle}</h3>
+            <h3>Calories Burned <img src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/313/fire_1f525.png' alt='calorie-burned' className='calorie-img'></img> : {userLatestActivity.length > 0 && totalCalories} kcal</h3>
         </div>
         <div className='userLastActivity-graph'>
             {userLatestActivity.length > 0 && (

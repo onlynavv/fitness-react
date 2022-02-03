@@ -73,37 +73,39 @@ const Timer = () => {
         
         {showPlayBtn ? (
             <div className='timerForm-div'>
-                <h1>Timer</h1>
-                <form>
+                <div className='timer-header'>
+                    <h1>Timer</h1>
+                </div>
+                <form className='timer-form'>
                     <div className='form-control'>
                         <label>workout seconds</label>
-                        <input type="number" name="workoutSecs" value={currTimer.workoutSecs} onChange={handleChange}></input>
+                        <input type="number" name="workoutSecs" min={0} value={currTimer.workoutSecs} onChange={handleChange}></input>
                     </div>
                     <div className='form-control'>
                         <label>Rest Time</label>
-                        <input type="number" name="restSecs" value={currTimer.restSecs} onChange={handleChange}></input>
+                        <input type="number" name="restSecs" min={0} value={currTimer.restSecs} onChange={handleChange}></input>
                     </div>
                     <div className='form-control'>
                         <label>Total Reps</label>
-                        <input type="number" name="rounds" value={currTimer.rounds} onChange={handleChange}></input>
+                        <input type="number" name="rounds" min={0} value={currTimer.rounds} onChange={handleChange}></input>
                     </div>
                 </form>
             </div>
         ) : (
             <div className='timer'>
                 <div className='rounds'>
-                    <h4>Rounds</h4>
+                    <h2>Rounds</h2>
                     <h2>{currTimer.rounds}</h2>
                 </div>
                 {showSecsData ? (
                     <div className='timer-display'>
                         <h2>{currTimer.workoutSecs}</h2>
-                        <h5>Work</h5>
+                        <h2>Work</h2>
                     </div>
                 ) : (
                     <div className='timer-display'>
                         <h2>{currTimer.restSecs}</h2>
-                        <h5>Rest</h5>
+                        <h2>Rest</h2>
                     </div>
                 )}
             </div>

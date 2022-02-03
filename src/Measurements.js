@@ -60,17 +60,21 @@ const Measurements = () => {
           </div>
 
           {showWeightForm && (
-            <form className='form-wrapper'>
+            <form className='form-wrapper weightForm-wrapper'>
               <div className='form-control'>
                 <label>Enter Weight: </label>
                 <input type="number" placeholder="enter weight" value={weightValue.weight} onChange={handleWeightChange} id="weight" name="weight"></input>
               </div>
               <div className='form-control'>
                 <label>Date: {moment(dateValue).format('MMMM Do YYYY')}</label>
-                <p onClick={()=>setShowDatePicker(!showDatePicker)}>Change Date</p>
-                {showDatePicker && <Calendar value={dateValue} name="date" onChange={handleDateChange} />}
+                <div>
+                  <p onClick={()=>setShowDatePicker(!showDatePicker)} className='changeDate'>Change Date</p>
+                  {showDatePicker && <Calendar value={dateValue} name="date" onChange={handleDateChange} />}
+                </div>
               </div>
-              <button onClick={handleWeightSubmit}>Submit Weight</button>
+              <div className='form-control'>
+                <button onClick={handleWeightSubmit} className='submitWeight'>Submit Weight</button>
+              </div>
             </form>
           )}
           

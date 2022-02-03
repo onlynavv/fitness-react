@@ -18,7 +18,7 @@ const UserSingleActivity = () => {
   },[])
 
     useEffect(()=>{
-    fetch(`http://localhost:9000/workouts/getUserSingleActivity/${id}`, {
+    fetch(`https://fitness-logger-node-app.herokuapp.com/workouts/getUserSingleActivity/${id}`, {
             method:'GET',
             headers: { "Content-Type": "application/json", "x-auth-token":userState.token}})
     .then((data)=> data.json())

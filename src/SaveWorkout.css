@@ -1,0 +1,38 @@
+.save-workout-wrapper {
+  padding: 25px;
+}
+
+.save-workout-header {
+  display: flex;
+  justify-content: space-between;
+}
+
+.save-workout-wrapper > .form-wrapper {
+  background: white;
+  margin-top: 45px;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px #ddd;
+}
+
+.save-workout-wrapper > .form-wrapper > .form-control {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.saveWorkout {
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  background: #dd5c46;
+  color: white;
+  padding: 12px 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-weight: 600;
+}
+
+.saveWorkout:hover {
+  cursor: pointer;
+}

@@ -1,0 +1,86 @@
+.userSingleActivity-wrapper {
+  padding: 25px;
+}
+
+.singleActivity-card {
+  border-radius: 10px;
+  border: none;
+  background-color: white;
+  box-shadow: 1px 1px 1px 1px #ddd;
+}
+
+.userSingleActivity-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 15px;
+  justify-content: space-between;
+}
+
+.userInfo-div {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userSingleActivity-title {
+  padding: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.userSingleActivity-title > h4 {
+  align-items: center;
+}
+
+.userSingleActivity-content {
+  padding: 20px;
+}
+
+.single-workoutInfo {
+  margin: 15px 0;
+  border-bottom: solid 1px black;
+  padding-bottom: 10px;
+}
+
+.single-workoutInfo > h3 {
+  margin-bottom: 15px;
+}
+
+.single-workoutInfo > p {
+  margin-bottom: 5px;
+}
+
+.action-btns {
+  padding: 10px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  margin-bottom: 15px;
+}
+
+.deleteBtn {
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  background: #dd5c46;
+  color: white;
+  padding: 15px 30px;
+}
+
+.editBtn {
+  padding: 2px 30px;
+  width: fit-content;
+  gap: 5px;
+  border: none;
+  outline: none;
+  border-radius: 5px;
+  color: white;
+  background-color: #673ab7;
+}
+
+.deleteBtn:hover,
+.editBtn:hover {
+  cursor: pointer;
+}

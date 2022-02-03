@@ -1,0 +1,38 @@
+.profile-header {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.userInfo-wrapper {
+  display: flex;
+}
+
+.userInfo-left {
+  padding: 10px;
+  flex: 0.7 1;
+  flex-direction: column;
+  gap: 20px;
+  display: flex;
+}
+
+.userInfo-right {
+  flex: 0.3 1;
+  padding: 10px;
+  flex-direction: column;
+  gap: 20px;
+  display: flex;
+}
+
+.colarie-wrapper {
+  padding: 15px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 1px 1px #ddd;
+}
+
+.profile-wrapper {
+  padding: 25px;
+}

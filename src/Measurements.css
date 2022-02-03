@@ -3,6 +3,19 @@
   justify-content: space-around;
 }
 
+.weight-infoBtns > button {
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  background: #dd5c46;
+  color: white;
+  padding: 15px 30px;
+}
+
+.weight-infoBtns > button:hover {
+  cursor: pointer;
+}
+
 .weight-wrapper {
   height: fit-content;
   padding: 30px;
@@ -15,4 +28,23 @@
 
 .measurements-wrapper {
   padding: 20px;
+}
+
+.weightForm-wrapper > .form-control {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.changeDate:hover {
+  cursor: pointer;
+}
+
+.submitWeight {
+  width: fit-content;
+  border-radius: 5px;
+  border: none;
+  background: #6553f5;
+  color: white;
+  padding: 15px 30px;
 }

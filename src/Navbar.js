@@ -3,6 +3,9 @@ import './Navbar.css'
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
 import Divider from '@mui/material/Divider';
 import { useGlobalContext } from './context';
+import Avatar from '@mui/material/Avatar';
+import Stack from '@mui/material/Stack';
+import { deepOrange, deepPurple } from '@mui/material/colors';
 
 const Navbar = () => {
     const {userState} = useGlobalContext()
@@ -14,7 +17,10 @@ const Navbar = () => {
                     </div>
                     <div className="navbar-right">
                         <Divider sx={{ height: 28, m: 0.5 }} orientation="vertical" />
-                        <AccountCircleOutlinedIcon /> {userState.user.username}
+                        <Stack direction="row" spacing={2}>
+                            <Avatar sx={{ bgcolor: deepPurple[500] }}>{userState.user.username.substring(0,2)}</Avatar>
+                        </Stack>
+                        <h3>{userState.user.username}</h3>
                     </div>
                 </div>
             </div>

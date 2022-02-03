@@ -2,6 +2,9 @@ import React from 'react';
 import { useGlobalContext } from './context';
 import "./LogWorkout.css"
 import { useHistory } from 'react-router-dom';
+import RemoveCircleOutlineIcon from '@mui/icons-material/RemoveCircleOutline';
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
+import DoneIcon from '@mui/icons-material/Done';
 
 const LogWorkout = () => {
 
@@ -49,15 +52,19 @@ const LogWorkout = () => {
   }
 
   return (
-    <div>
+    <div className='logWorkout-wrapper'>
+        <div className='logWorkout-header'>
+            <h1>Select Activity Type</h1>
+            <button onClick={()=>history.goBack()} className='backBtn'><ArrowBackOutlinedIcon /> Go Back</button>
+        </div>
         <form>
           {workoutSelected.map((item)=>{
             const {activityName, activityLevels, _id} = item
             return(
               <div key={_id} className='activity-wrapper'>
                 <div className='activity-name'>
-                  <h4>{activityName}</h4>
-                  <button onClick={(e)=>{handleRemoveActivity(e, _id)}}>Remove Activity</button>
+                  <h2>{activityName}</h2>
+                  <button className='removeBtn' onClick={(e)=>{handleRemoveActivity(e, _id)}}>Remove Activity <RemoveCircleOutlineIcon /> </button>
                 </div>
                     <div className='sets-wrapper'>
                       <div className='sets-info'>
@@ -97,9 +104,15 @@ const LogWorkout = () => {
               </div>
             )
           })}
-          <div className='form-control'>
-            <button onClick={()=>{history.push("/saveworkout")}}>Finish Workout</button>
-          </div>
+          {workoutSelected.length > 0 ? (
+            <div className='form-control'>
+              <button onClick={()=>{history.push("/saveworkout")}} className='finish-wrapper'>Finish Workout <DoneIcon /> </button>
+            </div>
+          ) : (
+            <div className='form-control'>
+              <h3 style={{textAlign:"center"}}>Please Select Activities, Go back and select</h3>
+            </div>
+          )}
         </form>
     </div>
   )

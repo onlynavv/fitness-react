@@ -17,7 +17,7 @@ const PostsCard = ({_id, totalCalories, username, workoutDate, workoutSummary, w
             <div className='postsCard-title'>
                 <h3>{workoutTitle}</h3>
                 <h4>{activityDate.toLocaleDateString()} {activityDate.toLocaleTimeString()}</h4>
-                <h4>Calories burned <LocalFireDepartmentIcon />{totalCalories} kcal</h4>
+                <h4>Calories burned <img src='https://emojipedia-us.s3.dualstack.us-west-1.amazonaws.com/thumbs/160/google/313/fire_1f525.png' alt='calorie-burned' className='calorie-img'></img>{totalCalories} kcal</h4>
             </div>
             <div className='postsCard-content'>
                 <h4>Workouts</h4>

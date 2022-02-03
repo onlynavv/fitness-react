@@ -1,6 +1,8 @@
 import React,{useState, useEffect} from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { useGlobalContext } from './context';
+import "./EditLogWorkout.css"
+import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 
 const EditLogWorkout = () => {
 
@@ -20,7 +22,7 @@ const EditLogWorkout = () => {
     const [editFormData, setEditFormData] = useState()
 
     useEffect(()=>{
-        fetch(`http://localhost:9000/workouts/getUserSingleActivity/${id}`, {
+        fetch(`https://fitness-logger-node-app.herokuapp.com/workouts/getUserSingleActivity/${id}`, {
             method:'GET',
             headers: { "Content-Type": "application/json", "x-auth-token":userState.token}})
     .then((data)=> data.json())
@@ -87,7 +89,10 @@ const EditLogWorkout = () => {
 
   return (
     <div className='editLogWorkout-wrapper'>
-      <h2>Edit Activity</h2>
+        <div className='editLogWorkout-header'>
+          <h2>Edit Activity</h2>
+          <button onClick={()=>history.goBack()} className='backBtn'><ArrowBackOutlinedIcon /> Go Back</button>
+        </div>
         <form>
             {workoutSelected && workoutSelected.map((item)=>{
             const {activityName, activityLevels, _id} = item
@@ -95,7 +100,7 @@ const EditLogWorkout = () => {
               <div key={_id} className='activity-wrapper'>
                 <div className='activity-name'>
                   <h4>{activityName}</h4>
-                  <button onClick={(e)=>{handleRemoveActivity(e, _id)}}>Remove Activity</button>
+                  <button onClick={(e)=>{handleRemoveActivity(e, _id)}} className='saveWorkout'>Remove Activity</button>
                 </div>
                     <div className='sets-wrapper'>
                       <div className='sets-info'>
@@ -136,7 +141,7 @@ const EditLogWorkout = () => {
             )
           })}
           <div className='form-control'>
-            <button onClick={(e)=>handleEditWorkout(e)}>Edit Workout</button>
+            <button onClick={(e)=>handleEditWorkout(e)} className='editworkout'>Edit Workout</button>
           </div>
         </form>
     </div>

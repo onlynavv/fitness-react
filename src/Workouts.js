@@ -16,14 +16,14 @@ const Workouts = () => {
 
   console.log(categories)
 
-  return <div>
-      <h4>Select category</h4>
+  return <div className='workoutCat-wrapper'>
+      <h2>Select category</h2>
       <div className='category-div'>
         {categories.map((item)=>{
           const {_id, name} = item
           return (
             <div key={_id} className='single-category' onClick={()=>history.push(`/activitytype/${_id}`)}>
-              <h4>{name}</h4>
+              <h3>{name}</h3>
             </div>
           )
         })}
