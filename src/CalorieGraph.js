@@ -3,7 +3,6 @@ import { AreaChart, Area, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContai
 import "./CalorieGraph.css"
 
 const CalorieGraph = ({chartArr}) => {
-    console.log(chartArr)
   return (
     <div className='calorie-wrapper'>
         <h3>Calorie Burned</h3>

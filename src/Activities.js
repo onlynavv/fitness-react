@@ -22,7 +22,15 @@ const Activities = () => {
     .then((item)=> setActivities(item))
     },[id])
 
-    console.log(activities)
+    const handleSetActivity = (e, _id) => {
+
+        if(e.target.checked){
+            setSingleActivityId(_id)
+        }else{
+            const newValue = selectedActivities.filter((item)=> {return item.activityName !== e.target.value})
+            setSelectedActivities(newValue)
+        }
+    }
 
     function getActivities (){
         fetch(`https://fitness-logger-node-app.herokuapp.com/workouts/getActivity/${singleActivtyId}`)
@@ -36,7 +44,6 @@ const Activities = () => {
         }
     },[singleActivtyId])
 
-    console.log(selectedActivities)
 
     const handleAddActivities = (e) => {
         e.preventDefault()
@@ -57,7 +64,7 @@ const Activities = () => {
                             const {_id, activityName} = item
                             return(
                                 <div key={_id} className='checkbox-wrapper'>
-                                    <input type="checkbox" name={activityName} value={activityName} id={_id} onChange={()=>{setSingleActivityId(_id)}}></input>
+                                    <input type="checkbox" name={activityName} value={activityName} id={_id} onChange={(e)=>{handleSetActivity(e,_id)}}></input>
                                     <label className='single-activity' htmlFor={_id}>{activityName}</label>
                                 </div>
                             )

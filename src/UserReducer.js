@@ -1,5 +1,4 @@
 export const UserReducer = (state, action) => {
-    console.log(action)
 
     switch (action.type) {
         case "SET_USER":

@@ -30,7 +30,7 @@ const Measurements = () => {
   const handleWeightSubmit = async(e) => {
     e.preventDefault()
     const weightData = {...weightValue, onDate: moment(dateValue).unix()}
-    console.log(weightData)
+    
     try{
         const resp = await fetch('https://fitness-logger-node-app.herokuapp.com/measurements/addUserWeights', {
             method:'PUT',
@@ -38,7 +38,7 @@ const Measurements = () => {
             body: JSON.stringify(weightData)
                 })
          if(resp.ok){
-           console.log("success")
+           
            history.push("/")
          }       
         
@@ -46,9 +46,6 @@ const Measurements = () => {
       console.warn(error.toString())
     }
   }
-
-  console.log(weightValue)
-  console.log(moment(dateValue).unix())
 
   return (
     <div className='measurements-wrapper'>
@@ -63,7 +60,7 @@ const Measurements = () => {
             <form className='form-wrapper weightForm-wrapper'>
               <div className='form-control'>
                 <label>Enter Weight: </label>
-                <input type="number" placeholder="enter weight" value={weightValue.weight} onChange={handleWeightChange} id="weight" name="weight"></input>
+                <input type="number" placeholder="enter weight" min={0} value={weightValue.weight} onChange={handleWeightChange} id="weight" name="weight"></input>
               </div>
               <div className='form-control'>
                 <label>Date: {moment(dateValue).format('MMMM Do YYYY')}</label>

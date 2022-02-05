@@ -4,7 +4,6 @@ import PostsCard from './PostsCard';
 import "./Posts.css"
 
 const Posts = ({usersActivities}) => {
-    console.log(usersActivities)
 
   const {userState, isUserLoggedIn} = useGlobalContext()
 

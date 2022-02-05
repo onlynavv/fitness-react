@@ -6,7 +6,6 @@ import ArrowBackOutlinedIcon from '@mui/icons-material/ArrowBackOutlined';
 
 const ActivityType = () => {
     const {id} = useParams()
-    console.log(id)
 
     const [activityType, setActivityType] = useState([])
 
@@ -18,7 +17,6 @@ const ActivityType = () => {
     .then((item)=> setActivityType(item))
   },[id])
 
-  console.log(activityType)
 
   return (
         <div className='activityType-wrapper'>

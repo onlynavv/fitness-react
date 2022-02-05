@@ -1,12 +1,11 @@
 export const LogWorkoutReducer = (state, action) => {
-    console.log(action)
 
     switch (action.type) {
         case "ADD_EXERCISES":
             return{...state, workoutSelected: action.payload}
 
         case "ADD_SET":
-            console.log(action.payload._id)
+            
             const isActivityPresent = state.workoutSelected.find((item)=>{
                 return item._id == action.payload._id ? true : false
             })
@@ -33,14 +32,14 @@ export const LogWorkoutReducer = (state, action) => {
             }
 
         case "REMOVE_ACTIVITY":
-            console.log(action.payload)
+            
             return {
                 ...state,
                 workoutSelected: state.workoutSelected.filter((item)=> item._id !== action.payload._id)
             }
             
         case "REMOVE_SET":
-            console.log(action.payload)
+            
             const findActivity = state.workoutSelected.find((item)=>{
                 return item._id === action.payload.activityId ? true: false
             })
@@ -60,7 +59,7 @@ export const LogWorkoutReducer = (state, action) => {
             }
 
         case "CHANGE_DURATION":
-            console.log(action.payload)
+            
             const isActivityAvail = state.workoutSelected.find((item)=>{
                 return item._id === action.payload._id ? true: false
             })
@@ -81,7 +80,7 @@ export const LogWorkoutReducer = (state, action) => {
             }
 
         case "CHANGE_DISTANCE":
-            console.log(action.payload)
+            
             const isActivityAvailable = state.workoutSelected.find((item)=>{
                 return item._id === action.payload._id ? true: false
             })
@@ -102,7 +101,7 @@ export const LogWorkoutReducer = (state, action) => {
             }
 
             case "CHANGE_SETS":
-            console.log(action.payload)
+            
             const isDataAvailable = state.workoutSelected.find((item)=>{
                 return item._id === action.payload._id ? true: false
             })
@@ -123,7 +122,7 @@ export const LogWorkoutReducer = (state, action) => {
             }
 
             case "CHANGE_REPS":
-            console.log(action.payload)
+            
             const dataAvailable = state.workoutSelected.find((item)=>{
                 return item._id === action.payload._id ? true: false
             })
@@ -144,7 +143,7 @@ export const LogWorkoutReducer = (state, action) => {
             }
 
             case "CHANGE_LEVELS":
-            console.log(action.payload)
+            
             const dataPresent = state.workoutSelected.find((item)=>{
                 return item._id === action.payload._id ? true: false
             })
@@ -165,7 +164,7 @@ export const LogWorkoutReducer = (state, action) => {
             }
 
             case "CHANGE_WEIGHTS":
-            console.log(action.payload)
+            
             const isDataPresent = state.workoutSelected.find((item)=>{
                 return item._id === action.payload._id ? true: false
             })

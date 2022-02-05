@@ -10,19 +10,15 @@ const LogWorkout = () => {
 
   const {workoutSelected, logWorkoutDispatcher} = useGlobalContext()
 
-  console.log(workoutSelected)
-
   const history = useHistory()
 
   const handleRemoveActivity = (e, _id) => {
     e.preventDefault()
-    console.log(_id)
     logWorkoutDispatcher({type:"REMOVE_ACTIVITY", payload:{_id}})
   }
 
   const handleDurationChange = (e, _id, durationValue) => {
     e.preventDefault()
-    console.log(_id)
     logWorkoutDispatcher({type:"CHANGE_DURATION", payload:{_id:_id, durationValue:durationValue}})
   }
 
@@ -71,29 +67,30 @@ const LogWorkout = () => {
                         {item.catName === "cardio" ? (
                           <div className='form-control'>
                             <label>Enter Km</label>
-                            <input type="number" placeholder='enter km' value={item.distance} onChange={(e)=>{handleDistanceChange(e, _id, e.target.value)}}></input>
+                            <input type="number" placeholder='enter km' min={0} value={item.distance} onChange={(e)=>{handleDistanceChange(e, _id, e.target.value)}}></input>
                           </div>
                         ) : (
                           <div className='form-control'>
                             <label>Enter Kgs</label>
-                            <input type="number" placeholder='enter kgs' value={item.weight} onChange={(e)=>{handleWeightChange(e, _id, e.target.value)}}></input>
+                            <input type="number" placeholder='enter kgs' min={0} value={item.weight} onChange={(e)=>{handleWeightChange(e, _id, e.target.value)}}></input>
                           </div>
                         )}
                         <div className='form-control'>
                           <label>Enter duration</label>
-                          <input type="number" placeholder='duration in min' value={item.duration} onChange={(e)=>{handleDurationChange(e, _id, e.target.value)}}></input>
+                          <input type="number" placeholder='duration in min' min={0} value={item.duration} onChange={(e)=>{handleDurationChange(e, _id, e.target.value)}}></input>
                         </div>
                         <div className='form-control'>
                           <label>Enter No of Sets</label>
-                          <input type="number" placeholder="enter no of sets" value={item.sets} onChange={(e)=>{handleSetsChange(e, _id, e.target.value)}}></input>
+                          <input type="number" placeholder="enter no of sets" min={0} value={item.sets} onChange={(e)=>{handleSetsChange(e, _id, e.target.value)}}></input>
                         </div>
                         <div className='form-control'>
                           <label>Enter Reps</label>
-                          <input type="number" placeholder="enter no of reps" value={item.reps} onChange={(e)=>{handleRepsChange(e, _id, e.target.value)}}></input>
+                          <input type="number" placeholder="enter no of reps" min={0} value={item.reps} onChange={(e)=>{handleRepsChange(e, _id, e.target.value)}}></input>
                         </div>
                         <div className='form-control'>
                           <label>select activity level: </label>
                           <select name="activityLevel" value={item.levels} onChange={(e)=>{handleLevelsChange(e, _id, e.target.value)}}>
+                            <option value="none">none</option>
                             {activityLevels.map((levels)=>{
                               return <option key={levels.id} value={levels.name}>{levels.name}</option>
                             })}

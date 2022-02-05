@@ -14,8 +14,6 @@ const Workouts = () => {
     .then((item)=> setCategories(item.data))
   },[])
 
-  console.log(categories)
-
   return <div className='workoutCat-wrapper'>
       <h2>Select category</h2>
       <div className='category-div'>

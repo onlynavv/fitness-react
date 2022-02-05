@@ -27,7 +27,6 @@ const Signup = () => {
     )
   
   const registerUser = (values) => {
-    console.log(values)
 
     fetch('https://fitness-logger-node-app.herokuapp.com/workouts/user/signup', {
         method:'POST',

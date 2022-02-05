@@ -41,10 +41,6 @@ const AppProvider = ({children}) => {
     // user useReducer
     const [userState, userDispatch] = useReducer(UserReducer, UserState)
 
-    console.log(timerState.workoutSecs)
-    console.log(timerState.restSecs)
-    console.log(logWorkoutState.workoutSelected)
-
     return(
         <AppContext.Provider value={{timerState, ...logWorkoutState, logWorkoutDispatcher, userState, userDispatch, isUserLoggedIn, userSignout, editWorkoutState, editWorkoutDispatcher}}>
             {children}

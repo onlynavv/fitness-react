@@ -29,7 +29,7 @@ const SingleActivityCard = ({workoutDate, username, workoutTitle, totalCalories,
             const data = await resp.json()
 
             if(resp.ok){
-                console.log("delete success")
+                
                 history.push("/")
             }
             }catch(error){

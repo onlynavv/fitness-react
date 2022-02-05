@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useGlobalContext } from './context';
 import './Sidebar.css'
 import LogoutIcon from '@mui/icons-material/Logout';
@@ -10,7 +10,15 @@ import InsertChartOutlinedIcon from '@mui/icons-material/InsertChartOutlined';
 
 const Sidebar = () => {
 
-    const {userState, userSignout} = useGlobalContext()
+    const {userState, userDispatch} = useGlobalContext()
+
+    const history = useHistory()
+
+    const userSignout = () => {
+        localStorage.clear()
+        userDispatch({type:"LOGOUT_USER"})
+        history.push("/")
+    }
 
   return <>
             <aside className="sidebar">

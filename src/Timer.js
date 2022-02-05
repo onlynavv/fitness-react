@@ -5,7 +5,6 @@ import "./TabataTimer.css"
 const Timer = () => {
 
   const {timerState} = useGlobalContext()
-  console.log(timerState)
 
   const [initialTimerState, setInitialTimerState] = useState(timerState)
   const [currTimer, setCurrTimer] = useState(initialTimerState)

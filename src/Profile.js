@@ -28,7 +28,6 @@ const Profile = () => {
     .then((item)=> setUserActivities(item))
   },[userState])
 
-  console.log(usersActivities)
 
   useEffect(()=>{
     fetch('https://fitness-logger-node-app.herokuapp.com/measurements/getUsersMeasurementInfo', {
@@ -38,7 +37,6 @@ const Profile = () => {
     .then((item)=> setUserMeasurementInfo(item))
   },[userState])
 
-  console.log(userMeasurementInfo)
 
   const weightArr = userMeasurementInfo && userMeasurementInfo.weightData.map((item)=>{
     const newWeightArr = {}
@@ -55,7 +53,6 @@ const Profile = () => {
     .then((item)=> setUserCalories(item))
   },[userState])
 
-  console.log(userCalories)
 
   const chartArr = userCalories.length > 0 && userCalories.map((item)=>{
     const newArr = {}
@@ -64,7 +61,6 @@ const Profile = () => {
     return newArr
 })
 
-  console.log(chartArr)
 
   useEffect(()=>{
     fetch('https://fitness-logger-node-app.herokuapp.com/workouts/getUserLatestActivity', {
@@ -74,7 +70,6 @@ const Profile = () => {
     .then((item)=> setUserLatestActivity(item))
   },[userState])
 
-  console.log(userLatestActivity)
 
   return <div className='profile-wrapper'>
       <div className='profile-header'>

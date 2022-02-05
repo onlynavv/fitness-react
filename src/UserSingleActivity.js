@@ -5,7 +5,6 @@ import SingleActivityCard from './SingleActivityCard';
 
 const UserSingleActivity = () => {
     const {id} = useParams()
-    console.log(id)
 
     const {userState, isUserLoggedIn} = useGlobalContext()
 
@@ -24,8 +23,6 @@ const UserSingleActivity = () => {
     .then((data)=> data.json())
     .then((item)=> setUserSingleActivity(item))
   },[userState])
-
-  console.log(userSingleActivity)
 
   return (
     <>

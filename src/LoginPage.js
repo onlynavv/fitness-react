@@ -50,12 +50,9 @@ const LoginPage = () => {
         const data = await resp.json()
         
         setSingleUser(data.userFromDB.username)
-        console.log(singleUser)
-        console.log(data)
 
         if(resp.ok){
             const {token, userFromDB} = data
-            console.log(token, userFromDB)
             localStorage.setItem("token", JSON.stringify(token))
             localStorage.setItem("user", JSON.stringify(data.userFromDB))
             setUser(token, userFromDB)

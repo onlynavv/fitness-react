@@ -4,8 +4,6 @@ import { useGlobalContext } from './context';
 const TimerForm = () => {
     const {workoutSecs, restSecs, rounds, timerDispatch} = useGlobalContext()
 
-    console.log(workoutSecs)
-    console.log(restSecs)
   return (
     <div className='timerForm-div'>
         <form>

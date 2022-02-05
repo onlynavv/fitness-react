@@ -17,9 +17,6 @@ const SaveWorkout = () => {
     const [workoutDetails, setWorkoutDetails] = useState({workoutTitle:"", workoutNotes:""})
 
     const {workoutSelected, userState} = useGlobalContext()
-    console.log(workoutSelected)
-
-    console.log(userState)
 
     const handleDateChange = (e) => {
         setDateValue(e)
@@ -30,11 +27,9 @@ const SaveWorkout = () => {
         setWorkoutDetails({...workoutDetails, [name]:value})
     }
 
-    console.log({...workoutDetails,workoutDate: moment(dateValue).unix(),workoutId: nanoid(6), workoutSummary:workoutSelected, userId:userState.user._id, username:userState.user.username})
-
     const handleWorkoutSubmit = async(e) => {
         e.preventDefault()
-        console.log({...workoutDetails,dateValue})
+        
         try{
             const resp = await fetch('https://fitness-logger-node-app.herokuapp.com/workouts/saveworkout', {
             method:'POST',
@@ -42,7 +37,7 @@ const SaveWorkout = () => {
             body: JSON.stringify({...workoutDetails,workoutDate: moment(dateValue).unix(),workoutId: nanoid(6), workoutSummary:workoutSelected, userId:userState.user._id, username:userState.user.username})
                 })
             if(resp.ok){
-                console.log("success")
+                
                 history.push("/")
             }
         }catch(error){

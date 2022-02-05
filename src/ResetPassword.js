@@ -19,8 +19,6 @@ const ResetPassword = () => {
         setHandlePassword({...handlePassword, [name]:value})
     }
 
-    console.log(JSON.stringify(handlePassword))
-
 
     const handleLogin = async() => {
         const url = `https://fitness-logger-node-app.herokuapp.com/workouts/user/reset-password/${id}/${token}`
