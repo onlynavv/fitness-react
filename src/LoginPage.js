@@ -5,6 +5,8 @@ import Button from '@mui/material/Button';
 import { Link, useHistory } from 'react-router-dom';
 import { useGlobalContext } from './context';
 import ForgotPassword from './ForgotPassword';
+import IconButton from '@mui/material/IconButton';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 
 const LoginPage = () => {
 
@@ -32,6 +34,22 @@ const LoginPage = () => {
   const setUser = (token, userFromDB) => {
     userDispatch({type:"SET_USER", payload:{token, userFromDB}})
   }
+
+  const [show, setShow] = useState(false)
+
+    const demoShow = {
+        display: show ? 'block' : 'none'
+    }
+
+    const expandMoreStyle = {
+        transform: !show ? 'rotate(0deg)' : 'rotate(180deg)',
+        transition: 'all 0.5s ease'
+    }
+
+    const demoUserLogin = (e) => {
+        e.preventDefault()
+        setSingleUser({username:"naveen", password:"Password@123"})
+    }
   
   useEffect(()=>{
       if(!userState.isUserAuthenticated){
@@ -79,14 +97,14 @@ const LoginPage = () => {
             {showLoginForm ? (
                 <div>
                     <h1>Login In</h1>
-                        <form className='form-wrapper'>
+                        <form className='form-wrapper form-wrapper-login'>
                             <div className='form-control'>
                             <label>Enter Username</label>
-                            <input type="email" placeholder="enter your email address" value={singleUser.username} onChange={handleChange} id="username" name="username"></input>
+                            <input type="email" className='userLogin' placeholder="enter your email address" value={singleUser.username} onChange={handleChange} id="username" name="username"></input>
                             </div>
                             <div className="form-control">
                             <label>Enter Password</label>
-                            <input type="password" placeholder="enter your password" value={singleUser.password} onChange={handleChange} id="password" name="password"></input>
+                            <input type="password" className='passwordLogin' placeholder="enter your password" value={singleUser.password} onChange={handleChange} id="password" name="password"></input>
                             </div>
                             <Button className="submitBtn" variant="contained" size="medium" onClick={handleLogin}>login</Button>
                         </form>
@@ -97,6 +115,17 @@ const LoginPage = () => {
                             <span className='signup-gray'>New to Fitness Logger?</span>
                             <span className='signup-link' onClick={()=>setShowLoginForm(!showLoginForm)}> Sign Up!!</span>
                         </h4>
+                        <div className='demo-credentials'>
+                            <div className='demo-credentials-header'>
+                                <h4>Demo Credentials</h4>
+                                <IconButton onClick={()=>{setShow(!show)}}>
+                                    <ExpandMoreIcon style={expandMoreStyle} />
+                                </IconButton>
+                            </div>
+                            <div style={demoShow}>
+                                <Button onClick={(e)=>demoUserLogin(e)}>Login</Button>
+                            </div>
+                        </div>
                 </div>
             ) : (
                 showForgotPassword ? <ForgotPassword /> : <RegisterPage setShowLoginForm={setShowLoginForm} showLoginForm={showLoginForm} /> 

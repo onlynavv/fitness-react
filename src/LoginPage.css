@@ -86,3 +86,21 @@
   cursor: pointer;
   text-decoration: underline;
 }
+
+.demo-credentials-header {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.passwordLogin,
+.userLogin {
+  border: none;
+  border-bottom: solid 1px black;
+  outline: none;
+  height: 30px;
+}
+
+.form-wrapper-login {
+  gap: 15px;
+}
